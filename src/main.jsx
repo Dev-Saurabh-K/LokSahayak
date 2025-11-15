@@ -10,8 +10,9 @@ import FactCheckerPage from './FactChecker.jsx'
 const router=createBrowserRouter([
   {path:"login",element:<Login/>},
   {path:"signup",element:<Signup/>},
-  {path:"chat", element:<App/>},
-  {path:"factchecker", element:<FactCheckerPage/>}
+  // {path:"chat", element:<App/>},
+  {path:"factchecker", element:<FactCheckerPage/>},
+  {path:"/", element:<App/>}
 ])
 
 createRoot(document.getElementById('root')).render(
