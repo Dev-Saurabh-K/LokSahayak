@@ -82,7 +82,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/user/chat", {
+      const response = await axios.post("https://servered-dc3x.onrender.com/user/chat", {
         user: input,
       });
 
