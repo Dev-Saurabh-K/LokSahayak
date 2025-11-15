@@ -4,9 +4,16 @@ import './index.css'
 import App from './App.jsx'
 import Login from './Login.jsx'
 import Signup from './Signup.jsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+const router=createBrowserRouter([
+  {path:"login",element:<Login/>},
+  {path:"signup",element:<Signup/>},
+  {path:"chat", element:<App/>}
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </StrictMode>,
 )
