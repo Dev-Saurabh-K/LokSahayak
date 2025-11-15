@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
+import i18n from "./i18n";
 
 
 const SpeechRecognition =
