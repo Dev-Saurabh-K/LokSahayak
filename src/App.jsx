@@ -119,7 +119,7 @@ export default function App() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/user/image/upload",
+        "https://servered-dc3x.onrender.com/user/image/upload",
         formData,
         {
           headers: {
