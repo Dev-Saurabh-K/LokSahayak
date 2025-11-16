@@ -474,7 +474,7 @@ export default function App() {
       </main>
       
       {/* --- Link was moved from here --- */}
-      
+      <Link to="/login">login</Link>
     </div>
   );
 }
