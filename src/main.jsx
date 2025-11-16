@@ -6,6 +6,7 @@ import Login from './Login.jsx'
 import Signup from './Signup.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import FactCheckerPage from './FactChecker.jsx'
+import "./i18n";
 
 const router=createBrowserRouter([
   {path:"login",element:<Login/>},
