@@ -19,7 +19,7 @@ export default function Login() {
     };
 
     try {
-      const response = await axios.post("http://localhost:3000/auth/signin", data);
+      const response = await axios.post("https://servered-dc3x.onrender.com/auth/signin", data);
       console.log("Login successful:", response.data);
     } catch (err) {
       console.error("Login failed:", err);
