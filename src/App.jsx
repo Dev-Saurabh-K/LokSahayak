@@ -233,22 +233,30 @@ export default function App() {
           </div>
         </div>
 
+        {/* --- CHANGED (1/4): Updated File Input to be a drag-and-drop <label> --- */}
         <h3>{t("uploadTitle")}</h3>
-        <div className="file-input">
-          {/* --- Updated File Input --- */}
+        <label className="file-input">
           <input type="file" onChange={handleFileChange} accept="image/*" />
-        </div>
+          <div className="file-input-icon">📤</div>
+          <p>Drag & drop file here</p>
+          <span>or Click to browse</span>
+        </label>
+        {/* ------------------------------------------------------------------- */}
 
-        {/* --- Updated Preview Area --- */}
+
+        {/* --- CHANGED (2/4): Updated Preview Area to show spinner --- */}
         <div className="doc-placeholder" aria-live="polite">
           {isUploading ? (
-            <div>{t("uploadingImage", "Uploading...")}</div>
+            <>
+              <div className="spinner"></div>
+              <div className="uploading-text">{t("uploadingImage", "Uploading...")}</div>
+            </>
           ) : previewUrl ? (
             <img
               src={previewUrl}
               alt={t("imagePreviewAlt", "Image preview")}
               style={{
-                width: "100%", // <--- THIS WAS THE FIX
+                width: "100%", 
                 height: "100%",
                 objectFit: "contain",
                 borderRadius: "8px",
@@ -261,27 +269,30 @@ export default function App() {
             </>
           )}
         </div>
-        {/* --------------------------- */}
+        {/* ------------------------------------------------------------- */}
 
-        <div
-          style={{
-            marginTop: "auto",
-            fontSize: 13,
-            color: "var(--muted)",
-          }}
-        >
-          {/* ... (tips section remains the same) */}
+
+        {/* --- CHANGED (3/4): Replaced inline style with className --- */}
+        <div className="tips-section">
           <div style={{ marginBottom: 6 }}>{t("tipsTitle")}</div>
           <ul style={{ paddingLeft: 16, margin: 0 }}>
             <li>{t("tip1")}</li>
             <li>{t("tip2")}</li>
           </ul>
         </div>
+        {/* ----------------------------------------------------------- */}
+
       </aside>
 
       <main className="right">
-        {/* ... (topbar, menu, and history modal remain the same) */}
         <div className="topbar" role="toolbar" aria-label="top controls">
+          
+          {/* --- CHANGED (4/4): Moved FactChecker Link here and styled it --- */}
+          <Link to="/factchecker" className="topbar-link">
+            Go to FactChecker
+          </Link>
+          {/* ---------------------------------------------------------------- */}
+
           <button className="lang-btn" onClick={toggleLanguage}>
             {getNextLanguageName()}
           </button>
@@ -306,6 +317,7 @@ export default function App() {
             </div>
           )}
         </div>
+        
         {showHistory && (
           <div className="history-modal" role="dialog" aria-modal="true">
             <div className="history-header">
@@ -352,7 +364,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ... (chat header and messages remain the same) */}
+        {/* (chat header and messages remain the same) */}
         <div className="chat">
           <div className="chat-header">
             <div style={{ fontWeight: 700 }}>{t("chatTitle")}</div>
@@ -426,7 +438,6 @@ export default function App() {
                 style={{ cursor: "pointer" }}
               >
                 📷
-                {/* --- Updated File Input --- */}
                 <input
                   type="file"
                   accept="image/*"
@@ -437,7 +448,6 @@ export default function App() {
             </div>
 
             <div className="input-field" role="search">
-              {/* ... (text input remains the same) */}
               <input
                 type="text"
                 placeholder={t("placeholder")}
@@ -462,7 +472,8 @@ export default function App() {
           </div>
         </div>
       </main>
-      <Link to="/factchecker"><h1>Go to FactChecker</h1></Link>
+      
+      {/* --- Link was moved from here --- */}
       
     </div>
   );
